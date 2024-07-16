@@ -83,7 +83,6 @@ if checkbox:
 
         
         st.success(f"Image saved to {save_path}")
-        st.success(f"Segmentation Map saved to {true_path}")
 
         if st.button('Run Segmentation', key="run_segmentation_button"):
 

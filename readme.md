@@ -46,7 +46,7 @@ streamlit run app.py
 3. If you want to upload the mask, you can click on the Upload the mask checkbox, and upload the mask. You will be able to see the actual image and the segmented mask side by side on the app, once you upload it.
 ![alt text](images/mask.png)
 
-    Also provide the legend, you will be able to select from the categories the model you are using for segmentation provides with respect to the colors detected from the mask. Xlick on select colors once done.
+    Also provide the legend, you will be able to select from the categories the model you are using for segmentation provides with respect to the colors detected from the mask. Click on select colors once done.
 ![alt text](images/colors.png)
 
 4. Click the "Run Segmentation" button to perform segmentation. You should see results like:
@@ -54,7 +54,38 @@ streamlit run app.py
 without true mask uploaded
 ![alt text](images/with_true_mask.png)
 
+## Flow
 
+We can understand the architecture from the below given image:
+![alt text](images/flow.png)
+
+Each image goes through this flow:
+1. **User Uploads an Image:**
+   - The image is saved to the `current_image` directory.
+
+2. **User Selects a Method and Mask Option:**
+   - If the user wants to upload a mask:
+     - Find unique colors in the image.
+     - Load a list of all available categories for the selected model, including the background category.
+     - Let the user select categories and their corresponding mask colors to create a legend of the true mask.
+     - Save the legend and the true mask.
+
+3. **Predict the Segmentation Map:**
+   - Depending on the selected method, we proceed as follows:
+     - **Thresholding:** Load the image, convert it to grayscale, and apply thresholding.
+     - **Segformer or Mask2former:** Load the processor and model from Hugging Face, preprocess the image, predict, and generate a segmentation map.
+
+4. **Save the Created Mask:**
+   - Save the predicted mask in an image format.
+
+5. **Create an Overlay Image:**
+   - Generate an overlay image to visualize the predicted mask alongside the original image.
+
+6. **Display Output in Streamlit:**
+   - Show the results to the user via Streamlit.
+
+7. **Clean Up User Data:**
+   - When the Streamlit app is stopped, clean up the user data.
 
 ## Models
 
