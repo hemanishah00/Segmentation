@@ -30,6 +30,9 @@ def cleanup():
     if os.path.exists("true"):
         shutil.rmtree("true")
         print("Deleted true")
+    if os.path.exists("true_legend"):
+        shutil.rmtree("true_legend")
+        print("Deleted true_legend")
 
 atexit.register(cleanup)
 
