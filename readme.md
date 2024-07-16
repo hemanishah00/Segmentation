@@ -61,7 +61,7 @@ We can understand the architecture from the below given image:
 
 Each image goes through this flow:
 1. **User Uploads an Image:**
-   - The image is saved to the `current_image` directory.
+   - The image is saved to the `current_image` directory. The Val folder contains some images and their masks, that I used for testing.
 
 2. **User Selects a Method and Mask Option:**
    - If the user wants to upload a mask:
