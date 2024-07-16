@@ -1,0 +1,8 @@
+opencv-python
+Pillow
+torch
+transformers
+matplotlib
+scipy
+streamlit
+tensorflow
