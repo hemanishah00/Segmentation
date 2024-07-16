@@ -21,7 +21,7 @@ To run this app locally, follow these steps:
     ```
 3. Navigate to the project directory:
     ```bash
-    cd Segmentation
+    cd Segmentation-main
     ```
 4. Install the required dependencies:
     ```bash
